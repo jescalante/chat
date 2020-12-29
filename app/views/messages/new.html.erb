@@ -1,0 +1,13 @@
+<%= turbo_frame_tag "new_message" do %>
+  <%= form_with(
+    model: [@channel, @message],
+    data: { controller: "reset_form", action: "turbo:submit-end->reset_form#reset" },
+  ) do |form| %>
+    <%= form.hidden_field :username, value: cookies["username"] %>
+
+    <div class="field">
+      <%= form.rich_text_area :content %>
+      <%= form.submit "Post", "data-reset_form-target": "button" %>
+    </div>
+  <% end %>
+<% end %>

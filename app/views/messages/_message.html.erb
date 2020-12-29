@@ -1,0 +1,5 @@
+<%= content_tag :div, id: dom_id(message) do %>
+  <em><%= message.username %> said <%= time_ago_in_words(message.created_at) %> ago</em>
+  <%= message.content %>
+  <hr>
+<% end %>

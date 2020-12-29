@@ -2,17 +2,21 @@
 <html>
   <head>
     <title>Chat</title>
+    <meta name="viewport" content="width=device-with,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
     <%= yield :head %>
     <%= turbo_include_tags %>
     <%= stimulus_include_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= link_to "Home", root_path %>
+      <%= yield %>
+    </div>
   </body>
 </html>

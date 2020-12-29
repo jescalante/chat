@@ -1,0 +1,17 @@
+<%= turbo_stream_from @channel %>
+
+<%= turbo_frame_tag "channel" do %>
+  <p id="notice"><%= notice %></p>
+
+  <%= render @channel %>
+
+  <%= link_to 'Edit', edit_channel_path(@channel) %> |
+  <%= link_to 'Back', channels_path, "data-turbo-frame": :_top  %>
+<% end %>
+
+<div id="messages">
+  <h2>Messages</h2>
+  <%= render @channel.messages %>
+</div>
+
+<%= turbo_frame_tag "new_message", src: new_channel_message_path(@channel), target: :_top %>
